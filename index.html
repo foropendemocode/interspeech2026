@@ -1,176 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Demo Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-        }
-
-        /* Navbar */
-        nav {
-            background: #1f2937;
-            color: white;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav h1 {
-            font-size: 20px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #4f46e5, #9333ea);
-            color: white;
-        }
-
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .hero button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 6px;
-            background: white;
-            color: #4f46e5;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .hero button:hover {
-            background: #e5e7eb;
-        }
-
-        /* Features */
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 60px 20px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            width: 260px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-        }
-
-        .card p {
-            font-size: 14px;
-            color: #555;
-        }
-
-        /* Footer */
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Audio Page</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <main class="container">
+    <h1>Cognitive Speech Demo</h1>
 
-    <nav>
-        <h1>DemoPage</h1>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section class="hero">
-        <h2>Welcome to the Demo Page</h2>
-        <p>This is a simple HTML demo layout.</p>
-        <button onclick="showMessage()">Click Me</button>
+    <section class="panel">
+      <h2>Part 1: Original Audio (Patient Audio)</h2>
+      <div class="audio-list">
+        <div class="audio-item">
+          <p>Patient Audio 1</p>
+          <audio controls preload="none" src="gt_audio/adrso024_part1/vocals.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>Patient Audio 2</p>
+          <audio controls preload="none" src="gt_audio/adrso024_part2/vocals.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>Patient Audio 3</p>
+          <audio controls preload="none" src="gt_audio/adrso024_part3/vocals.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>Patient Audio 4</p>
+          <audio controls preload="none" src="gt_audio/adrso024_part4/vocals.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>Patient Audio 5</p>
+          <audio controls preload="none" src="gt_audio/adrso024_part5/vocals.wav"></audio>
+        </div>
+      </div>
     </section>
 
-    <section class="features">
-        <div class="card">
-            <h3>Fast</h3>
-            <p>Lightweight and easy to modify for quick prototypes.</p>
-        </div>
+    <section class="panel">
+      <h2>Part 2: Cognitive Markers in Audio</h2>
+      <textarea readonly>
+What do you see happening in that picture ? Oh , water fell off the sink . [long_pause] Little boy fell off his uh , [long_pause] what ' s that called ? [long_pause] He fell off of that thing .  He [long_pause] fell down . Anything else  you see happening ? The [short_pause] house comes to the end and you get that water spout all over the floor  . [medium_pause] It ' s terrible . [long_pause] Any other action yet ?  This little girl  was just  [short_pause] looking at  her brother .
 
-        <div class="card">
-            <h3>Responsive</h3>
-            <p>Works on desktop, tablet, and mobile devices.</p>
-        </div>
+---
 
-        <div class="card">
-            <h3>Customizable</h3>
-            <p>Simple CSS structure for easy customization.</p>
-        </div>
+1) Pause markers: frequent [short_pause], [medium_pause], [long_pause]
+2) Fillers and hesitation: repeated use of "uh" and "um"
+3) Uncertainty expressions: e.g., "what ' s that called ?", "Anything else ?"
+4) Incomplete or fragmented phrasing: repetitions and sentence breaks
+5) Difficulty extracting details: unstable description of scene details
+6) Signs of cognitive load: narrative backtracking and interruptions
+      </textarea>
     </section>
 
-    <footer>
-        © 2026 Demo Page | All Rights Reserved
-    </footer>
+    <section class="panel">
+      <h2>Part 3: Synthesized Text</h2>
+      <textarea readonly>
+So , uh , the kids are workin' over in the corner . [short_pause] And uh , we ' re grading . Uh , then they ' re gonna grab cookies out of the jar . [short_pause] And the mother doesn ' t really see it ' cause uh she ' s inside drying uh clothes . [medium_pause] So I ' m kinda like uh, imagining this picture where she ' s working hard and uh the kids are just playing around . [short_pause] Uh, something happened and a dish got knocked over [short_pause] and there was like [short_pause] water spilled everywhere on the floor . [medium_pause] But uh, it didn ' t all dry up or anything . [short_pause] There ' s water splashing from the sink . [short_pause] Oh, uh, not anywhere else though . [short_pause] One of the kids might uh end up getting hurt . [short_pause] Like , uh , with a bump on their head or something . [short_pause] And uh , sometimes the image of it all comes really clear . [short_pause] Other times uh it ' s like weak or fuzzy . [medium_pause] Like , sometimes I ' m just like uh <fuzzy> , what am I seeing ? </fuzzy> [long_pause] Um , was there anything more in the picture ? [medium_pause] Mostly I can see the scene [short_pause] pretty clearly , but uh , those smaller uh details ... I can ' t always uh catch ' em . [medium_pause] Okay , uh , I guess that ' s all I can tell ya about the picture
+      </textarea>
+    </section>
 
-    <script>
-        function showMessage() {
-            alert("Hello! This is a demo interaction.");
-        }
-    </script>
+    <section class="panel">
+      <h2>Part 4: TTS Generated Audio</h2>
+      <div class="audio-list">
+        <div class="audio-item">
+          <p>TTS Audio 1</p>
+          <audio controls preload="none"
+            src="generated/ADReSSo-ADReSSo-ADReSSo21-diagnosis-train-audio-ad-adrso024_0_8.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>TTS Audio 2</p>
+          <audio controls preload="none"
+            src="generated/ADReSSo-ADReSSo-ADReSSo21-diagnosis-train-audio-ad-adrso024_1_6.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>TTS Audio 3</p>
+          <audio controls preload="none"
+            src="generated/ADReSSo-ADReSSo-ADReSSo21-diagnosis-train-audio-ad-adrso024_1_8.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>TTS Audio 4</p>
+          <audio controls preload="none"
+            src="generated/ADReSSo-ADReSSo-ADReSSo21-diagnosis-train-audio-ad-adrso025_0_10.wav"></audio>
+        </div>
+        <div class="audio-item">
+          <p>TTS Audio 5</p>
+          <audio controls preload="none"
+            src="generated/ADReSSo-ADReSSo-ADReSSo21-diagnosis-train-audio-ad-adrso031_1_1.wav"></audio>
+        </div>
+      </div>
+    </section>
+  </main>
 
+  <script src="script.js"></script>
 </body>
 
 </html>
